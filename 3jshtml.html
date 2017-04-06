@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<div id="container"></div>
+		<script src="three.js"></script>
+		<script>
+			// Our Javascript will go here.
+
+			// ADDED
+			var myListOfImages = [
+				"360_0218_Stitch_XHC.jpg",
+				//"360_0219_Stitch_XHC.jpg",
+				//"360_0220_Stitch_XHC.jpg",
+				// "360_0221_Stitch_XHC.jpg",
+				"360_0222_Stitch_XHC.jpg",
+				// "360_0223_Stitch_XHC.jpg",
+				//"360_0234_Stitch_XHC.jpg",
+				// "360_0235_Stitch_XHC.jpg",
+				"360_0226_Stitch_XHC.jpg",
+				// "360_0227_Stitch_XHC.jpg",
+				//"360_0228_Stitch_XHC.jpg",
+				// "360_0229_Stitch_XHC.jpg",
+				"360_0230_Stitch_XHC.jpg",
+				// "360_0231_Stitch_XHC.jpg",
+				// "360_0232_Stitch_XHC.jpg",
+				// "360_0233_Stitch_XHC.jpg",
+				"360_0234_Stitch_XHC.jpg",
+				// "360_0235_Stitch_XHC.jpg",
+				//"360_0236_Stitch_XHC.jpg",
+				// "360_0237_Stitch_XHC.jpg",
+				"360_0238_Stitch_XHC.jpg",
+				// "360_0239_Stitch_XHC.jpg",
+				//"360_0240_Stitch_XHC.jpg",
+				// "360_0241_Stitch_XHC.jpg",
+				"360_0242_Stitch_XHC.jpg",
+				// "360_0243_Stitch_XHC.jpg",
+				//"360_0244_Stitch_XHC.jpg",
+				// "360_0245_Stitch_XHC.jpg",
+				"360_0246_Stitch_XHC.jpg",
+				// "360_0247_Stitch_XHC.jpg",
+				//"360_0248_Stitch_XHC.jpg",
+				// "360_0249_Stitch_XHC.jpg",
+				"360_0250_Stitch_XHC.jpg",
+				// "360_0251_Stitch_XHC.jpg",
+				//"360_0252_Stitch_XHC.jpg",
+				// "360_0253_Stitch_XHC.jpg",
+				"360_0254_Stitch_XHC.jpg",
+				// "360_0255_Stitch_XHC.jpg",
+				//"360_0256_Stitch_XHC.jpg",
+				// "360_0257_Stitch_XHC.jpg",
+				"360_0258_Stitch_XHC.jpg",
+				// "360_0259_Stitch_XHC.jpg",
+				//"360_0260_Stitch_XHC.jpg",
+				// "360_0261_Stitch_XHC.jpg",
+				"360_0262_Stitch_XHC.jpg",
+				// "360_0263_Stitch_XHC.jpg",
+				//"360_0264_Stitch_XHC.jpg",
+				// "360_0265_Stitch_XHC.jpg",
+				"360_0266_Stitch_XHC.jpg",
+				// "360_0267_Stitch_XHC.jpg",
+				//"360_0268_Stitch_XHC.jpg",
+				// "360_0269_Stitch_XHC.jpg",
+				"360_0270_Stitch_XHC.jpg",
+				// "360_0271_Stitch_XHC.jpg",
+				//"360_0272_Stitch_XHC.jpg",
+				// "360_0273_Stitch_XHC.jpg",
+				"360_0274_Stitch_XHC.jpg",
+				// "360_0275_Stitch_XHC.jpg",
+				//"360_0276_Stitch_XHC.jpg",
+				// "360_0277_Stitch_XHC.jpg",
+				"360_0278_Stitch_XHC.jpg",
+				// "360_0279_Stitch_XHC.jpg",
+				//"360_0280_Stitch_XHC.jpg",
+				// "360_0281_Stitch_XHC.jpg",
+				"360_0282_Stitch_XHC.jpg",
+				// "360_0283_Stitch_XHC.jpg",
+				//"360_0284_Stitch_XHC.jpg",
+				// "360_0285_Stitch_XHC.jpg",
+				"360_0286_Stitch_XHC.jpg",
+				// "360_0287_Stitch_XHC.jpg",
+				//"360_0288_Stitch_XHC.jpg",
+				// "360_0289_Stitch_XHC.jpg",
+				"360_0290_Stitch_XHC.jpg",
+				// "360_0291_Stitch_XHC.jpg",
+				//"360_0292_Stitch_XHC.jpg",
+				// "360_0293_Stitch_XHC.jpg",
+				"360_0294_Stitch_XHC.jpg",
+				// "360_0295_Stitch_XHC.jpg",
+				//"360_0296_Stitch_XHC.jpg",
+				// "360_0297_Stitch_XHC.jpg",
+				"360_0298_Stitch_XHC.jpg",
+				// "360_0299_Stitch_XHC.jpg",
+				//"360_0300_Stitch_XHC.jpg",
+				// "360_0301_Stitch_XHC.jpg",
+				"360_0302_Stitch_XHC.jpg",
+				// "360_0303_Stitch_XHC.jpg",
+				//"360_0304_Stitch_XHC.jpg",
+				// "360_0305_Stitch_XHC.jpg",
+				"360_0306_Stitch_XHC.jpg",
+				// "360_0307_Stitch_XHC.jpg",
+				//"360_0308_Stitch_XHC.jpg",
+				// "360_0309_Stitch_XHC.jpg",
+				"360_0310_Stitch_XHC.jpg",
+				// "360_0311_Stitch_XHC.jpg",
+				//"360_0312_Stitch_XHC.jpg",
+				// "360_0313_Stitch_XHC.jpg",
+				"360_0314_Stitch_XHC.jpg",
+				// "360_0315_Stitch_XHC.jpg",
+				//"360_0316_Stitch_XHC.jpg",
+				// "360_0317_Stitch_XHC.jpg",
+				"360_0318_Stitch_XHC.jpg",
+				// "360_0319_Stitch_XHC.jpg",
+				//"360_0320_Stitch_XHC.jpg",
+				// "360_0321_Stitch_XHC.jpg",
+				"360_0322_Stitch_XHC.jpg",
+				// "360_0323_Stitch_XHC.jpg",
+				//"360_0324_Stitch_XHC.jpg",
+				// "360_0325_Stitch_XHC.jpg",
+				"360_0326_Stitch_XHC.jpg",
+				// "360_0327_Stitch_XHC.jpg",
+				//"360_0328_Stitch_XHC.jpg",
+				// "360_0329_Stitch_XHC.jpg",
+				//"360_0330_Stitch_XHC.jpg",
+				// "360_0331_Stitch_XHC.mp4"
+			];
+			var currentIndex = 0;
+
+			//video
+			var video = document.createElement( 'video' );
+			// video.loop = true;
+			video.src = "360_0331_Stitch_XHC.mp4";
+			video.setAttribute( 'webkit-playsinline', 'webkit-playsinline' );
+			// video.play();
+			var texture = new THREE.VideoTexture( video );
+			texture.minFilter = THREE.LinearFilter;
+			texture.format = THREE.RGBFormat;
+
+			var camera, scene, renderer, mesh, material;
+
+			var isUserInteracting = false,
+			onMouseDownMouseX = 0, onMouseDownMouseY = 0,
+			lon = 0, onMouseDownLon = 0,
+			lat = 0, onMouseDownLat = 0,
+			phi = 0, theta = 0;
+
+			var materials = new Array();
+			var index = 0;
+			var switchVideo = false;
+
+			init();
+			animate();
+			function init() {
+				var container = document.getElementById( 'container' );
+				camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1, 1100 );
+				camera.target = new THREE.Vector3( 0, 0, 0 );
+				scene = new THREE.Scene();
+				var geometry = new THREE.SphereGeometry( 500, 60, 40 );
+				geometry.scale( - 1, 1, 1 );
+
+
+				matImage = new THREE.MeshBasicMaterial( {
+					map: new THREE.TextureLoader().load( myListOfImages[currentIndex] )
+				} );
+				matVideo = new THREE.MeshBasicMaterial( { map : texture } );
+
+			  materials.push(matImage);
+			  materials.push(matVideo);
+				//
+				// materials[0]
+				// 	materials[1]
+				//
+
+
+				material = 	materials[index]
+				mesh = new THREE.Mesh( geometry, 	material );
+				//console.log(mesh.material);
+				scene.add( mesh );
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+				document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+				document.addEventListener( 'mouseup', onDocumentMouseUp, false );
+				document.addEventListener( 'wheel', onDocumentMouseWheel, false );
+				// ADDED
+				document.addEventListener( 'keypress', onDocumentKeyPress, false );
+
+				//
+				document.addEventListener( 'dragover', function ( event ) {
+					event.preventDefault();
+					event.dataTransfer.dropEffect = 'copy';
+				}, false );
+				document.addEventListener( 'dragenter', function ( event ) {
+					document.body.style.opacity = 0.5;
+				}, false );
+				document.addEventListener( 'dragleave', function ( event ) {
+					document.body.style.opacity = 1;
+				}, false );
+				document.addEventListener( 'drop', function ( event ) {
+					event.preventDefault();
+					var reader = new FileReader();
+					reader.addEventListener( 'load', function ( event ) {
+						material.map.image.src = event.target.result;
+						material.map.needsUpdate = true;
+					}, false );
+					reader.readAsDataURL( event.dataTransfer.files[ 0 ] );
+					document.body.style.opacity = 1;
+				}, false );
+				//
+				window.addEventListener( 'resize', onWindowResize, false );
+			}
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+			function onDocumentMouseDown( event ) {
+				event.preventDefault();
+				isUserInteracting = true;
+				onPointerDownPointerX = event.clientX;
+				onPointerDownPointerY = event.clientY;
+				onPointerDownLon = lon;
+				onPointerDownLat = lat;
+			}
+			function onDocumentMouseMove( event ) {
+				if ( isUserInteracting === true ) {
+					lon = ( onPointerDownPointerX - event.clientX ) * 0.1 + onPointerDownLon;
+					lat = ( event.clientY - onPointerDownPointerY ) * 0.1 + onPointerDownLat;
+				}
+			}
+			function onDocumentMouseUp( event ) {
+				isUserInteracting = false;
+			}
+			function onDocumentMouseWheel( event ) {
+				camera.fov += event.deltaY * 0.05;
+				camera.updateProjectionMatrix();
+			}
+			// ADDED
+			function onDocumentKeyPress( event ) {
+			// 	currentIndex = (currentIndex + 1) % myListOfImages.length;
+			// 	texture = THREE.ImageUtils.loadTexture( myListOfImages[currentIndex], undefined, function() {
+			// 		materials[0].map.image.src = myListOfImages[currentIndex];
+			// 		materials[0].map.needsUpdate = true;
+			// 	});
+			// if(currentIndex == myListOfImages.length - 1){
+			// 	mesh.material = materials[1];
+			// }
+
+				//console.log(currentIndex);
+			index ++;
+			// mesh.material = materials[index];
+
+
+			if(index == 28){
+				mesh.material =	materials[1];
+				materials[1].map.needsUpdate = true;
+				console.log(index);
+
+				// video
+				video.play();
+				video.loop = true;
+
+
+			}else{
+				mesh.material =	materials[0];
+				materials[0].map.image.src = myListOfImages[index];
+				materials[0].map.needsUpdate = true;
+				console.log(index);
+			}
+
+			if(index > 28){
+				index = 0;
+			}
+
+			console.log(index);
+
+			}
+			function animate() {
+				requestAnimationFrame( animate );
+				update();
+			}
+			function update() {
+				if ( isUserInteracting === true ) {
+					lon += 0.1;
+				}
+				lat = Math.max( - 85, Math.min( 85, lat ) );
+				phi = THREE.Math.degToRad( 90 - lat );
+				theta = THREE.Math.degToRad( lon );
+				camera.target.x = 100 * Math.sin( phi ) * Math.cos( theta );
+				camera.target.y = 100 * Math.cos( phi );
+				camera.target.z = 100 * Math.sin( phi ) * Math.sin( theta );
+				camera.lookAt( camera.target );
+
+				renderer.render( scene, camera );
+			}
+
+
+		</script>
+	</body>
+</html>
